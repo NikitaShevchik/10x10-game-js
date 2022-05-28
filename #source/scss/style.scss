@@ -1,0 +1,52 @@
+// Обнуление стилей
+@import "nullstyle.scss";
+// Подключение шрифтов
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+//SCSS
+.main {
+    font-family: 'Open Sans', sans-serif;
+}
+.container {
+    border: 1px solid black;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+.txt {
+    padding: 50px 20px;
+		&__title {
+            font-size: 40px;
+            text-align: center;
+		}
+
+		&__rules {
+            text-align: center;
+            line-height: 1.4;
+		}
+
+		&__board {
+		}
+}
+.board {
+    padding: 50px 0 0 0;
+		&__grid {
+            display: grid;
+            grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+		}
+
+		&__item {
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            background: rgba( 255, 196, 0, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+            backdrop-filter: blur( 12px );
+            -webkit-backdrop-filter: blur( 12px );
+            border-radius: 3px;
+            transition: all 0.3s ease 0s;
+            &:hover{
+                
+                transform: scale(1.2);
+                z-index: 10;
+            }
+		}
+}
