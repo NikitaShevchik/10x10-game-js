@@ -107,6 +107,13 @@ h1, h2, h3, h4, h5, h6 {
   -ms-grid-rows: (1fr)[10];
   -ms-grid-columns: (1fr)[10];
       grid-template: repeat(10, 1fr)/repeat(10, 1fr);
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.board__title {
+  font-size: 50px;
+  text-align: center;
 }
 
 .board__item {
@@ -119,29 +126,54 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 3px;
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
 }
 
 .board__item:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   z-index: 10;
 }
 
 .board__item._green {
   background: rgba(102, 255, 0, 0.5);
+  cursor: no-drop;
+}
+
+.board__item._green:hover {
+  -webkit-transform: none;
+          transform: none;
+  z-index: 0;
 }
 
 .board__item._red {
   background: rgba(255, 0, 0, 0.5);
-  -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   cursor: no-drop;
 }
 
 .board__item._red:hover {
   -webkit-transform: none;
           transform: none;
-  z-index: 10;
+  z-index: 0;
+}
+
+.board__grid._finish {
+  pointer-events: none;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  -webkit-transform: scale(0.5) translate(0, -40%);
+          transform: scale(0.5) translate(0, -40%);
+}
+
+.board__grid._finish .board__item {
+  cursor: no-drop;
+}
+
+.board__grid._finish .board__item:hover {
+  -webkit-transform: none;
+          transform: none;
+  z-index: 0;
 }

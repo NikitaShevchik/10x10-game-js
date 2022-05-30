@@ -1,6 +1,8 @@
 "use strict"
 
 const boardSquareItem = document.querySelectorAll(".board__item");
+const allBoard = document.querySelector(".board__grid");
+const finishTitle = document.querySelector(".board__title");
 /*--------Функция создающая 10 рандомных чисел-----*/
 var randomItems = [];
 function generateRandoms() {
@@ -28,15 +30,26 @@ function randomSquares() {
 }
 randomSquares();
 
-boardSquareItem.forEach(e => e.addEventListener("click", function () {
-    if (e.classList.contains("_win")) {
-        e.classList.add("_green");
-        console.log('YES');
+var greenCounter = 0;
+
+boardSquareItem.forEach(e => e.addEventListener("click", function (open) {
+    if (e.classList.contains("_green")) {
+        open.preventDefault();
+    } else if (e.classList.contains("_win")) {
+        e.classList.toggle("_green");
+        greenCounter++;
+        if (greenCounter == 10){
+            allBoard.classList.add("_finish");
+            finishTitle.innerHTML = "Вы победили!"
+        }
     } else {
-        console.log('NO');
         e.classList.add("_red");
     }
 }))
+
+
+
+
 /*--
 function randomTen(e){
     for(let i = 0; i < 10; i++){
