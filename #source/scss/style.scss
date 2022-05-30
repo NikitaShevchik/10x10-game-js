@@ -7,7 +7,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 .container {
-    border: 1px solid black;
     max-width: 1040px;
     margin: 0 auto;
 }
@@ -37,16 +36,29 @@
             cursor: pointer;
             width: 100px;
             height: 100px;
-            background: rgba( 255, 196, 0, 0.35 );
+            background: rgba( 255, 196, 0, 0.4 );
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
             backdrop-filter: blur( 12px );
             -webkit-backdrop-filter: blur( 12px );
             border-radius: 3px;
             transition: all 0.3s ease 0s;
             &:hover{
-                
                 transform: scale(1.2);
                 z-index: 10;
             }
 		}
+}
+.board__item._green{
+    background: rgba(102, 255, 0, 0.5);
+    
+}
+
+.board__item._red{
+    background: rgba(255, 0, 0, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    cursor: no-drop;
+    &:hover{
+        transform: none;
+        z-index: 10;
+    }
 }

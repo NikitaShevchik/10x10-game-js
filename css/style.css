@@ -79,7 +79,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-  border: 1px solid black;
   max-width: 1040px;
   margin: 0 auto;
 }
@@ -114,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  background: rgba(255, 196, 0, 0.35);
+  background: rgba(255, 196, 0, 0.4);
   -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
   backdrop-filter: blur(12px);
@@ -127,5 +126,22 @@ h1, h2, h3, h4, h5, h6 {
 .board__item:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+  z-index: 10;
+}
+
+.board__item._green {
+  background: rgba(102, 255, 0, 0.5);
+}
+
+.board__item._red {
+  background: rgba(255, 0, 0, 0.5);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  cursor: no-drop;
+}
+
+.board__item._red:hover {
+  -webkit-transform: none;
+          transform: none;
   z-index: 10;
 }
