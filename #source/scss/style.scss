@@ -2,7 +2,11 @@
 @import "nullstyle.scss";
 // Подключение шрифтов
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); //LOGO
 //SCSS
+body{
+    background: rgb(189, 247, 255);
+}
 .main {
     font-family: 'Open Sans', sans-serif;
 }
@@ -15,9 +19,11 @@
 		&__title {
             font-size: 40px;
             text-align: center;
+            font-family: 'Pacifico', cursive;
 		}
 
 		&__rules {
+            padding: 10px 0 0 0;
             text-align: center;
             line-height: 1.4;
 		}
@@ -26,7 +32,8 @@
 		}
 }
 .board {
-    padding: 50px 0 0 0;
+    padding: 30px 0 0 0;
+    position: relative;
 		&__grid {
             display: grid;
             grid-template: repeat(10, 1fr) / repeat(10, 1fr);
@@ -34,13 +41,14 @@
 		}
         &__title{
             font-size: 50px;
+            font-family: 'Pacifico', cursive;
             text-align: center;
         }
 		&__item {
             cursor: pointer;
             width: 100px;
             height: 100px;
-            background: rgba( 255, 196, 0, 0.4 );
+            background: rgb(255, 227, 136);
             box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
             backdrop-filter: blur( 12px );
             -webkit-backdrop-filter: blur( 12px );
@@ -51,9 +59,30 @@
                 z-index: 10;
             }
 		}
+        &__repeat{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(0, -400px);
+        }
+        &__button{
+            background: rgba( 255, 200, 0, 1);
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+            backdrop-filter: blur( 12.5px );
+            -webkit-backdrop-filter: blur( 12.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            font-size: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
 }
+.board__repeat._hide{
+    display: none;
+}
+
 .board__item._green{
-    background: rgba(102, 255, 0, 0.5);
+    background: rgba(102, 255, 0, 1);
     cursor: no-drop;
     &:hover{
         transform: none;
@@ -62,7 +91,7 @@
 }
 
 .board__item._red{
-    background: rgba(255, 0, 0, 0.5);
+    background: rgb(255, 52, 52);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
     cursor: no-drop;
     &:hover{

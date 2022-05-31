@@ -3,6 +3,7 @@
 const boardSquareItem = document.querySelectorAll(".board__item");
 const allBoard = document.querySelector(".board__grid");
 const finishTitle = document.querySelector(".board__title");
+const repeatGameButton = document.querySelector(".board__repeat");
 /*--------Функция создающая 10 рандомных чисел-----*/
 var randomItems = [];
 function generateRandoms() {
@@ -38,15 +39,20 @@ boardSquareItem.forEach(e => e.addEventListener("click", function (open) {
     } else if (e.classList.contains("_win")) {
         e.classList.toggle("_green");
         greenCounter++;
-        if (greenCounter == 10){
+        if (greenCounter == 10) {
             allBoard.classList.add("_finish");
-            finishTitle.innerHTML = "Вы победили!"
+            finishTitle.innerHTML = "Вы победили!";
+            repeatGameButton.classList.remove("_hide");
         }
     } else {
         e.classList.add("_red");
     }
 }))
-
+/*--------Перезагрузка страницы по кнопке-----*/
+function restart() {
+    location.reload();
+};
+repeatGameButton.addEventListener("click", restart);
 
 
 

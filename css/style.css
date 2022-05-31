@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /*Обнуление*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -74,6 +75,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+body {
+  background: #bdf7ff;
+}
+
 .main {
   font-family: 'Open Sans', sans-serif;
 }
@@ -90,15 +95,18 @@ h1, h2, h3, h4, h5, h6 {
 .txt__title {
   font-size: 40px;
   text-align: center;
+  font-family: 'Pacifico', cursive;
 }
 
 .txt__rules {
+  padding: 10px 0 0 0;
   text-align: center;
   line-height: 1.4;
 }
 
 .board {
-  padding: 50px 0 0 0;
+  padding: 30px 0 0 0;
+  position: relative;
 }
 
 .board__grid {
@@ -113,6 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .board__title {
   font-size: 50px;
+  font-family: 'Pacifico', cursive;
   text-align: center;
 }
 
@@ -120,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   width: 100px;
   height: 100px;
-  background: rgba(255, 196, 0, 0.4);
+  background: #ffe388;
   -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
   backdrop-filter: blur(12px);
@@ -136,8 +145,39 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 10;
 }
 
+.board__repeat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translate(0, -400px);
+          transform: translate(0, -400px);
+}
+
+.board__button {
+  background: #ffc800;
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.17);
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.board__repeat._hide {
+  display: none;
+}
+
 .board__item._green {
-  background: rgba(102, 255, 0, 0.5);
+  background: #66ff00;
   cursor: no-drop;
 }
 
@@ -148,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .board__item._red {
-  background: rgba(255, 0, 0, 0.5);
+  background: #ff3434;
   -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   cursor: no-drop;
