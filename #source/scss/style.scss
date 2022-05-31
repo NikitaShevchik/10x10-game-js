@@ -6,6 +6,7 @@
 //SCSS
 body{
     background: rgb(189, 247, 255);
+    position: relative;
 }
 .main {
     font-family: 'Open Sans', sans-serif;
@@ -17,22 +18,27 @@ body{
 .txt {
     padding: 50px 20px;
 		&__title {
-            font-size: 40px;
+            font-size: 70px;
             text-align: center;
             font-family: 'Pacifico', cursive;
 		}
 
 		&__rules {
-            padding: 10px 0 0 0;
+            padding: 30px 0 0 0;  
             text-align: center;
             line-height: 1.4;
+            p{
+                text-decoration: underline;
+                cursor: pointer;
+                display: inline;
+            }
 		}
 
 		&__board {
 		}
 }
 .board {
-    padding: 30px 0 0 0;
+    padding: 20px 0 0 0;
     position: relative;
 		&__grid {
             display: grid;
@@ -77,6 +83,91 @@ body{
             border-radius: 5px;
         }
 }
+.popup._hide{
+    display: none;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+}
+.popup {
+    transition: all 0.8s ease 0s;
+    opacity: 1;
+    background: rgba( 255, 255, 255, 0.25 );
+    backdrop-filter: blur( 11.5px );
+    -webkit-backdrop-filter: blur( 11.5px );
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 20;
+    font-family: 'Open Sans', sans-serif;
+    &__body {
+        max-width: 450px;
+        max-height: 500px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.17 );
+        backdrop-filter: blur( 9px );
+        -webkit-backdrop-filter: blur( 9px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    &__content {
+        margin: 0 auto;
+        padding: 50px;
+        position: relative;
+    }
+
+    &__cross {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        &::after, &::before{
+            content: "";
+            width: 25px;
+            height: 1px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(0, -50%);
+        }
+        &::before{
+            transform: rotate(45deg);
+        }
+        &::after{
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-size: 25px;
+        padding: 0 0 20px 0;
+    }
+
+    &__text {
+        text-align: justify;
+        padding: 0 0 25px 0;
+        line-height: 1.5;
+    }
+}
+
+
+
+
+
+
+
+
+
 .board__repeat._hide{
     display: none;
 }
