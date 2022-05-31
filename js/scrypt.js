@@ -4,6 +4,10 @@ const boardSquareItem = document.querySelectorAll(".board__item");
 const allBoard = document.querySelector(".board__grid");
 const finishTitle = document.querySelector(".board__title");
 const repeatGameButton = document.querySelector(".board__repeat");
+const popup = document.querySelector(".popup");
+const openRules = document.querySelector(".txt__morerules");
+const popupCross = document.querySelector(".popup__cross");
+const popupBody = document.querySelector(".popup__body");
 /*--------Функция создающая 10 рандомных чисел-----*/
 var randomItems = [];
 function generateRandoms() {
@@ -53,8 +57,20 @@ function restart() {
     location.reload();
 };
 repeatGameButton.addEventListener("click", restart);
+/*--------Открытие правил-----*/
+function popupRules() {
+    popup.classList.toggle("_hide");
+}
+openRules.addEventListener("click", popupRules);
+popupCross.addEventListener("click", popupRules);
 
-
+popup.addEventListener("click", function (e) {
+    if (e.target != popup) {
+        e.preventDefault()
+    } else {
+        popup.classList.add("_hide");
+    }
+})
 
 /*--
 function randomTen(e){
