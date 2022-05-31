@@ -27,7 +27,7 @@ function generateRandoms() {
     }
 }
 generateRandoms()
-console.log(randomItems);
+//console.log(randomItems);
 /*--------Функция закрашивающая 10 рандомных клеточек (рандомные числа из прошлой функции)-----*/
 function randomSquares() {
     for (let i = 0; i < randomItems.length; i++) {
@@ -45,7 +45,6 @@ boardSquareItem.forEach(e => e.addEventListener("click", function (open) {
         e.classList.toggle("_green");
         greenCounter++;
         if (greenCounter == 10) {
-            clearInterval(inter);
             allBoard.classList.add("_finish");
             finishTitle.innerHTML = "Вы победили!";
             repeatGameButton.classList.remove("_hide");
@@ -76,24 +75,28 @@ popup.addEventListener("click", function (e) {
 
 
 var greenCounter = 0;
-var sec = 45;
+var sec = 30;
 function setTimer() {
     var inter = setInterval(tit, 1000);
     function tit() {
         if (allBoard.classList.contains("_finish")) {
+            //console.log("FINSH")
             clearInterval(inter);
         }
         if (sec >= 10) {
-            console.log(sec);
+            //console.log(sec);
             secondsTimer.innerHTML = `0:${sec}`;
             sec--;
         } else if (sec < 10) {
-            console.log(sec);
+            //console.log(sec);
             secondsTimer.innerHTML = `0:0${sec}`;
             sec--;
         }
         if (sec == -1) {
-            console.log("Stop")
+            allBoard.classList.add("_loose");
+            repeatGameButton.classList.remove("_hide");
+            finishTitle.innerHTML = "Вы проиграли. Время вышло";
+            //console.log("Stop")
             clearInterval(inter);
         }
     }

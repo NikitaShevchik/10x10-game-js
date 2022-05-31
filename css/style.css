@@ -327,3 +327,21 @@ body {
           transform: none;
   z-index: 0;
 }
+
+.board__grid._loose {
+  -webkit-transform: scale(0.5) translate(0, -40%);
+          transform: scale(0.5) translate(0, -40%);
+  pointer-events: none;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+
+.board__grid._loose .board__item {
+  cursor: no-drop;
+}
+
+.board__grid._loose .board__item:hover {
+  -webkit-transform: none;
+          transform: none;
+  z-index: 0;
+}

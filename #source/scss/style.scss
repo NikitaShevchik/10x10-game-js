@@ -207,3 +207,16 @@ body{
         }
     }
 }
+
+.board__grid._loose{
+    transform: scale(0.5) translate(0, -40%);
+    pointer-events: none;
+    transition: all 0.5s ease 0s;
+    .board__item{
+        cursor: no-drop;
+        &:hover{
+            transform: none;
+            z-index: 0;
+        }
+    }
+}
